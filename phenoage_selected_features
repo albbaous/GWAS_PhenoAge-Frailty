@@ -1,0 +1,30 @@
+Albumin
+* Field ID: 30600
+* Showcase Name: Albumin
+Creatinine
+* Field ID: 30700
+* Showcase Name: Creatinine
+Glucose (Serum)
+* Field ID: 30740
+* Showcase Name: Glucose
+C-reactive Protein (CRP)
+* Field ID: 30710
+* Showcase Name: C-reactive protein
+Lymphocyte Percentage
+* Field ID: 30180
+* Showcase Name: Lymphocytes (Percentage)
+Mean Cell Volume (MCV)
+* Field ID: 30044
+* Showcase Name: Mean corpuscular volume
+Red Cell Distribution Width (RDW)
+* Field ID: 30070
+* Showcase Name: Red blood cell Distribution Width
+Alkaline Phosphatase
+* Field ID: 30610
+* Showcase Name: Alkaline phosphatase
+White Blood Cell Count
+* Field ID: 30000
+* Showcase Name: White blood cell count
+Age
+* Field ID: 21003
+* Showcase Name: Age at assessment centre
