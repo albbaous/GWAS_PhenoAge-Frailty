@@ -39,7 +39,9 @@ Here, `w_i` are the respective biomarker weights and `x_i` are the biomarker val
 
 ## 2. Electronic Frailty Index (eFI-2)
 
-The **electronic Frailty Index version 2 (eFI-2)** quantifies frailty as a weighted sum of specific health deficits:
+### a) UKB command to download relevant components (run this on command line after `dx login`)
+
+### b) The **electronic Frailty Index version 2 (eFI-2)** quantifies frailty as a weighted sum of specific health deficits:
 
 ```
 eFI-2 = sum(w_i * d_i)
