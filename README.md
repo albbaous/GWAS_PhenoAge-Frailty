@@ -1,5 +1,4 @@
-# GWAS_PhenoAge-Frailty
-# Phenotype and Frailty Indices
+# PhenoAge and Frailty Indices
 
 This repository contains code and workflows for calculating **PhenoAge** and the **Electronic Frailty Index (eFI-2)** from UK Biobank data.
 
@@ -9,26 +8,24 @@ This repository contains code and workflows for calculating **PhenoAge** and the
 
 **PhenoAge** translates an individual's mortality risk—derived from a Gompertz proportional hazards model that combines chronological age and nine clinical biomarkers—into biological age (in years):
 
-\[
-\text{PhenoAge} = 141.50225 + \frac{\ln\left(-0.00553 \times \ln(1 - \text{mortality\_risk})\right)}{0.090165}
-\]
+```
+PhenoAge = 141.50225 + ln(-0.00553 * ln(1 - mortality_risk)) / 0.090165
+```
 
 The mortality risk is computed using the Gompertz model:
 
-\[
-\text{mortality\_risk} = 1 - \exp \Big( -\exp(xb) \times \frac{\exp(120 \cdot \gamma) - 1}{\gamma} \Big)
-\]
+```
+mortality_risk = 1 - exp(-exp(xb) * ((exp(120 * gamma) - 1) / gamma))
+```
 
 Where:
 
-- \(\gamma = 0.0076927\) (Gompertz hazard slope)
-- \(xb\) is the linear predictor:
+- `gamma = 0.0076927` (Gompertz hazard slope)  
+- `xb` = linear predictor = `-19.9067 + sum(w_i * x_i)`  
+- `w_i` = biomarker weights  
+- `x_i` = biomarker values (including chronological age)
 
-\[
-xb = -19.9067 + \sum_{i=1}^{9} w_i \cdot x_i
-\]
-
-Here, \(w_i\) are the respective biomarker weights and \(x_i\) are the biomarker values, including chronological age.
+Here, `w_i` are the respective biomarker weights and `x_i` are the biomarker values, including chronological age.
 
 ---
 
@@ -36,15 +33,15 @@ Here, \(w_i\) are the respective biomarker weights and \(x_i\) are the biomarker
 
 The **electronic Frailty Index version 2 (eFI-2)** quantifies frailty as a weighted sum of specific health deficits:
 
-\[
-\text{eFI-2} = \sum_{i=1}^{n} w_i \cdot d_i
-\]
+```
+eFI-2 = sum(w_i * d_i)
+```
 
 Where:
 
-- \(d_i\) = 1 if the i-th deficit is present, 0 otherwise  
-- \(w_i\) = coefficient representing the relative contribution of the i-th deficit  
-- \(n\) = total number of deficits included
+- `d_i` = `1` if the i-th deficit is present, `0` otherwise  
+- `w_i` = coefficient for the i-th deficit  
+- `n` = total number of deficits
 
 Frailty categories:
 
@@ -59,22 +56,20 @@ Frailty categories:
 
 The 1-year risk of the composite outcome can be calculated as:
 
-\[
-\text{1-year risk} = 0.0151 \times \exp(\text{LP})
-\]
+```
+1-year risk = 0.0151 * exp(LP)
+```
 
 Where the **linear predictor (LP)** is:
 
-\[
-\text{LP} = \sum_{i=1}^{n} \beta_i \cdot d_i
-\]
+```
+LP = sum(beta_i * d_i)
+```
 
 Or approximately:
 
-\[
-\text{LP} \approx 8.429 \times \text{eFI-2 score}
-\]
-
-Here, \(\beta_i\) denotes the coefficient for the i-th deficit, and \(d_i\) indicates presence (1) or absence (0).
-
----
+```
+LP ≈ 8.429 * eFI-2 score
+```
+- beta_i = coefficient for the i-th deficit  
+- d_i = presence (1) or absence (0) of deficit
