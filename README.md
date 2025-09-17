@@ -7,6 +7,7 @@ This repository contains code and workflows for calculating **PhenoAge** and the
 ## 1. PhenoAge
 
 ### a) UKB command to download relevant components (run this on command line after `dx login`)
+- Refer to `selected_features` to see column numbers from UKB showcase
 
 ```
 dx extract_dataset project-Gzyb0j8JQYbBjQxYqfb4xJYX:record-GzyfX70Jfj0bvy8YfvYQ302v --fields participant.eid,participant.p21003_i0,participant.p31,participant.p22009_a1,participant.p22009_a2,participant.p22009_a3,participant.p22009_a4,participant.p22009_a5,participant.p22009_a6,participant.p22009_a7,participant.p22009_a8,participant.p22009_a9,participant.p22009_a10,participant.p30600_i0,participant.p30700_i0,participant.p30740_i0,participant.p30710_i0,participant.p30180_i0,participant.p30044_i0,participant.p30070_i0,participant.p30610_i0,participant.p30000_i0 -o cohort_data_phenoage.csv
