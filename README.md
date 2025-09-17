@@ -71,5 +71,5 @@ Or approximately:
 ```
 LP ≈ 8.429 * eFI-2 score
 ```
-- beta_i = coefficient for the i-th deficit  
-- d_i = presence (1) or absence (0) of deficit
+- `beta_i` = coefficient for the i-th deficit  
+- `d_i` = presence (1) or absence (0) of deficit
